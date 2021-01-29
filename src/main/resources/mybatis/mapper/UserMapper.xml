@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.alphaboy.mapper.UserMapper">
+    <!--查询数据-->
+    <select id="queryUserList" resultType="com.alphaboy.pojo.User">
+        select * from info;
+    </select>
+    <!--添加数据-->
+    <insert id="addUser" parameterType="com.alphaboy.pojo.User">
+        insert into info (id, name, pwd) values (#{id}, #{name}, #{pwd})
+    </insert>
+    <!--根据名字查询数据-->
+    <select id="findByName" parameterType="string" resultType="com.alphaboy.pojo.User">
+        select id,name, pwd from info where name = #{value}
+    </select>
+</mapper>
